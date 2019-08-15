@@ -1,0 +1,26 @@
+{
+  "name": "bs-complex-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "watch": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superwo/bs-complex-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/superwo/bs-complex-app/issues"
+  },
+  "homepage": "https://github.com/superwo/bs-complex-app#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
