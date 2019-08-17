@@ -41,8 +41,8 @@ User.prototype.validate = function() {
   if (this.data.password == '') {
     this.errors.push('You must provide a password.');
   }
-  if (this.data.password.length > 0 && this.data.password.length < 12) {
-    this.errors.push('Password must be at lease 12 characters.');
+  if (this.data.password.length > 0 && this.data.password.length < 6) {
+    this.errors.push('Password must be at lease 6 characters.');
   }
   if (this.data.password.length > 100) {
     this.errors.push('Password cannot exceed 100 characters.');
@@ -53,6 +53,24 @@ User.prototype.validate = function() {
   if (this.data.username.length > 30) {
     this.errors.push('Username cannot exceed 30 characters.');
   }
+};
+
+User.prototype.login = function() {
+  return new Promise((resolve, reject) => {
+    this.cleanUp();
+    usersCollection
+      .findOne({ username: this.data.username })
+      .then(attemptedUser => {
+        if (attemptedUser && attemptedUser.password == this.data.password) {
+          resolve('Congrats!');
+        } else {
+          reject('Invalid username / password');
+        }
+      })
+      .catch(function() {
+        reject('Please try again later.');
+      });
+  });
 };
 
 User.prototype.register = function() {
