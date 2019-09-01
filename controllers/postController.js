@@ -15,3 +15,12 @@ exports.create = function(req, res) {
       res.send(errors);
     });
 };
+
+exports.viewSingle = async function(req, res) {
+  try {
+    let post = await Post.findSingleById(req.params.id);
+    res.render('single-post-screen', { post });
+  } catch (error) {
+    res.render('404');
+  }
+};
