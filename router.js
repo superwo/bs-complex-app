@@ -25,5 +25,6 @@ router.post(
   postController.create
 );
 router.get('/post/:id', postController.viewSingle);
+router.get('/post/:id/edit', postController.viewEditScreen);
 
 module.exports = router;
